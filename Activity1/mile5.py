@@ -1,15 +1,32 @@
 import cv2
-from matplotlib import pyplot as plt
 import numpy as np
-video=cv2.VideoCapture(0)
-for i in range(300):
-	ret,img=video.read()
-	# img=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-	# plt.imshow(img)
-	# plt.draw()
-	# plt.pause(1/100000)
-	img2=img[:,::-1,:]
-	cv2.imshow("Webcam",img2)
-	cv2.waitKey(10)
+import os
+
+dir = os.getcwd() + '\\Screenshots'
+video = cv2.VideoCapture(0)
+num = 0
+try:
+	fname = (os.listdir(dir))[-1]
+	fname = fname[10:]
+	num = ''
+	i = 0
+	while fname[i].isdigit():
+		num += fname[i]
+		i += 1
+	num = int(num)
+except IndexError:
+	pass
+while True:
+	ret, img = video.read()
+	img = img[:, ::-1, :]
+	cv2.imshow("Webcam", img)
+	inp = cv2.waitKey(10)
+	if inp == ord('c'):
+		break
+	elif inp == ord('s'):
+		fname = dir + '\\screenshot' + str(num) + '.png'
+		cv2.imwrite(fname, img)
+		print('Saving Screenshot...')
+		num += 1
 cv2.destroyAllWindows()
 video.release()
