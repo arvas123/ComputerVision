@@ -18,5 +18,3 @@ plt.imshow(img)
 plt.draw()
 plt.waitforbuttonpress(0)
 plt.close()
-
-# (452,404)
