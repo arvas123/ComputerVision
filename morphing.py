@@ -1,5 +1,5 @@
 import cv2
-import numpy
+import numpy as np
 
 
 def display(img, operation, structElem, size, iters):
@@ -50,7 +50,8 @@ def dilate(img, size=0, structMode=0, iters=1):
 	structElem = whichStructElem(structName)
 	st = cv2.getStructuringElement(structElem, (size, size))
 	res = cv2.morphologyEx(img, oper, st, iterations=iters)
-	display(res, opername, structName, size, iters)
+	return res
+	# display(res, opername, structName, size, iters)
 
 
 def Open(img, size=0, structMode=0, iters=1):
@@ -64,7 +65,8 @@ def Open(img, size=0, structMode=0, iters=1):
 	structElem = whichStructElem(structName)
 	st = cv2.getStructuringElement(structElem, (size, size))
 	res = cv2.morphologyEx(img, oper, st, iterations=iters)
-	display(res, oper, structName, size, iters)
+	return res
+	# display(res, oper, structName, size, iters)
 
 
 def Hat(img, size=0, structMode=0, iters=1):
@@ -78,7 +80,8 @@ def Hat(img, size=0, structMode=0, iters=1):
 	structElem = whichStructElem(structName)
 	st = cv2.getStructuringElement(structElem, (size, size))
 	res = cv2.morphologyEx(img, oper, st, iterations=iters)
-	display(res, oper, structName, size, iters)
+	return res
+	# display(res, oper, structName, size, iters)
 
 
 def gradient(img, size=0, structMode=0, iters=1):
@@ -89,6 +92,7 @@ def gradient(img, size=0, structMode=0, iters=1):
 	structElem = whichStructElem(structName)
 	st = cv2.getStructuringElement(structElem, (size, size))
 	res = cv2.morphologyEx(img, oper, st, iterations=iters)
-	display(res, oper, structName, size, iters)
+	return res
+	# display(res, oper, structName, size, iters)
 
 

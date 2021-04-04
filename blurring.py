@@ -10,11 +10,13 @@ def blur_display(img, wid, h, type):
 
 def gauss(img, wid, h):
 	blur_img = cv2.GaussianBlur(img, (wid, h), 0)
-	blur_display(blur_img, wid, h, "Gaussian Blur")
+	return blur_img
+	# blur_display(blur_img, wid, h, "Gaussian Blur")
 
 
 def regular(img, wid, h):
 	blur_img = cv2.blur(img, (wid, h))
-	blur_display(blur_img, wid, h, "Regular Blur")
+	return blur_img
+	# blur_display(blur_img, wid, h, "Regular Blur")
 
 
